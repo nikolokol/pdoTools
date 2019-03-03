@@ -81,7 +81,7 @@ if ($pdoClass = $modx->loadClass($fqn, $path, false, true)) {
 $pdoPage->pdoTools->addTime('pdoTools loaded');
 
 // Script and styles
-if (!$isAjax && !empty($scriptProperties['ajaxMode'])) {
+if (!$isAjax && empty($scriptProperties['ajaxMode'])) {
     $pdoPage->loadJsCss();
 }
 // Removing of default scripts and styles so they do not overwrote nested snippet parameters
