@@ -210,6 +210,7 @@ $tmp = array(
         'type' => 'list',
         'options' => array(
             array('name' => 'System default', 'value' => ''),
+            array('name' => 'uri (from field uri of document)', 'value' => 'uri'),
             array('name' => '-1 (relative to site_url)', 'value' => -1),
             array('name' => 'full (absolute, prepended with site_url)', 'value' => 'full'),
             array('name' => 'abs (absolute, prepended with base_url)', 'value' => 'abs'),
