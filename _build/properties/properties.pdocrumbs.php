@@ -141,6 +141,10 @@ $tmp = array(
                 'value' => '',
             ),
             array(
+                'name' => 'uri (from field uri of document)',
+                'value' => 'uri',
+            ),
+            array(
                 'name' => '-1 (relative to site_url)',
                 'value' => -1,
             ),
