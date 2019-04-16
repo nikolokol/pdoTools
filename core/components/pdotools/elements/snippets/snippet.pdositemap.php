@@ -64,13 +64,22 @@ if (!empty($excludeResources)) {
 }
 if (!empty($excludeChildrenOf)) {
     $tmp = array_map('trim', explode(',', $excludeChildrenOf));
+    $tempIds = '';
     foreach ($tmp as $v) {
-        if (!empty($scriptProperties['parents'])) {
-            $scriptProperties['parents'] .= ',-' . $v;
-        } else {
-            $scriptProperties['parents'] = '-' . $v;
+        if ($childs = $pdoFetch->getChildIds('modResource', $v)){
+            foreach ($childs as $childId) {
+                if ($childId) {
+                    $tempIds .= '-' . $childId . ',';
+                }
+            }
         }
     }
+   $tempIds = trim($tempIds, ',');
+    if (!empty($scriptProperties['resources'])) {
+            $scriptProperties['resources'] .= ',' . $tempIds;
+        } else {
+            $scriptProperties['resources'] = $tempIds;
+        }
 }
 if (!empty($startId)) {
     if (!empty($scriptProperties['parents'])) {
